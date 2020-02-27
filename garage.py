@@ -75,9 +75,10 @@ class ParkingGarage:
 
     def addCar(self, employee):
         for spaceNum, space in enumerate(self.spaces):
-            if space.type is employee.parkingSpaceType and not space.isOccupied():
-                space.occupy(employee)
+            if space.type is employee.parkingSpaceType and\
+                not space.isOccupied():
 
+                space.occupy(employee)
                 return spaceNum
 
         return False
@@ -134,10 +135,12 @@ class ParkingGarage:
         return fullCount
 
     def numFullPercentByType(self, spaceType):
-        return float(self.numFullSpacesByType(spaceType))/self.numSpacesByType(spaceType) * 100
+        return float(self.numFullSpacesByType(spaceType))/\
+            self.numSpacesByType(spaceType) * 100
 
     def numEmptySpacesByType(self, spaceType):
-        return self.numSpacesByType(spaceType) - self.numFullSpacesByType(spaceType)
+        return self.numSpacesByType(spaceType) -\
+        self.numFullSpacesByType(spaceType)
 
     def spaceOccupied(self, spaceId):
         return self.spaces[spaceId].isOccupied()
